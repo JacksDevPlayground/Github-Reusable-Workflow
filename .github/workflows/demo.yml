@@ -1,0 +1,29 @@
+name: "Demo of a Reusable Workflow"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+  workflow_call:
+
+jobs:
+  demo:
+    name: Demo 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install and build dependencies
+        run: echo Installing dependencies...
+
+      - name: Run tests
+        run: |
+          echo Testing...,
+          echo Tests passed ✅
+
+      - name: Deploy
+        run: |
+          echo Deploying...,
+          echo Deployed Successfully ✅
